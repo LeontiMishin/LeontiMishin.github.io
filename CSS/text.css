@@ -1,0 +1,15 @@
+@font-face{
+
+    font-family: 'MyWebFont';
+    
+    src: url('../text/Fontspring-DEMO-theseasons-bd.otf');
+    
+    /* src: url('../fonts/WebFont.eot?iefix') format('eot'),
+    
+    url('../fonts/WebFont.svg#webfont') format('svg'); */
+    
+    font-weight: normal;
+    
+    font-style: italic;
+    
+    }
