@@ -6275,18 +6275,18 @@ h6 {
 }
 
 .slider_area{
-  background: url(img/banner/banner.png);
+  background: url(img/burger.jpg);
 }
 
-.bradcam_area.breadcam_bg.overlay::before{
-  background: url(img/banner/bradcam.png);
+.bradcam_area::before{
+  background: url(img/burger.jpg);
 }
 
 .bradcam_area.breadcam_bg_1.overlay::before{
-  background: url(img/banner/bradcam.png);
+  background: url(img/burger.jpg);
 }
 
 .single_slider.slider_bg_2::before{
-  background: url(img/banner/bradcam.png);
+  background: url(img/burger.jpg);
 }
 
