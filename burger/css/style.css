@@ -6289,4 +6289,9 @@ h6 {
 .single_slider.slider_bg_2::before{
   background: url(img/burger.jpg);
 }
+.img{
+  display:block;
+  margin:auto;
+  width:1500px;
+}
 
