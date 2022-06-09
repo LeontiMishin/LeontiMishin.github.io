@@ -6286,3 +6286,7 @@ h6 {
   background: url(img/banner/bradcam.png);
 }
 
+.single_slider.slider_bg_2::before{
+  background: url(img/banner/bradcam.png);
+}
+
