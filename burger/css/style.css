@@ -6275,14 +6275,14 @@ h6 {
 }
 
 .slider_area{
-  background: url(img/banner/banner1.png);
+  background: url(img/banner/banner.png);
 }
 
 .bradcam_area.breadcam_bg.overlay::before{
-  background: url(img/banner/bradcam1.png);
+  background: url(img/banner/bradcam.png);
 }
 
 .bradcam_area.breadcam_bg_1.overlay::before{
-  background: url(img/banner/bradcam22.png);
+  background: url(img/banner/bradcam.png);
 }
 
