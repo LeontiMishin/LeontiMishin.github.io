@@ -28,12 +28,12 @@ function prepareGameField() {
         row.className = 'game-table-row row-' + i;
 
         for (var j = 0; j < FIELD_SIZE_Y; j++){
-            var cell = document.createElement('td')
-            cell.className = 'game-table-cell' + i + '-' + j;
+            var cell = document.createElement('td');
+            cell.className = 'game-table-cell cell-' + i + '-' + j;
 
             row.appendChild(cell);
         }
-        game_table.appendChild(row)
+        game_table.appendChild(row);
     }
     document.getElementById('snake-field').appendChild(game_table);
 }
@@ -43,18 +43,18 @@ function startGame(){
     respawn();
 
     snake_timer = setInterval(move, SNAKE_SPEED);
-    setTimeout(createFood, 5000)
+    setTimeout(createFood, 5000);
 }
 
 function respawn(){
-    var start_coord_x = Math.floor(FIELD_SIZE_X / 2)
-    var start_coord_y = Math.floor(FIELD_SIZE_Y / 2)
+    var start_coord_x = Math.floor(FIELD_SIZE_X / 2);
+    var start_coord_y = Math.floor(FIELD_SIZE_Y / 2);
 
     var snake_head = document.getElementsByClassName('cell-' + start_coord_y + '-' + start_coord_x)[0];
     snake_head.setAttribute('class', snake_head.getAttribute('class') + 'snake-unit');
 
     var snake_tail = document.getElementsByClassName('cell-' + (start_coord_y - 1) + '-' + start_coord_x)[0];
-    snake_tail.setAttribute('class', snake_tail.getAttribute('class') + 'snake-unit')
+    snake_tail.setAttribute('class', snake_tail.getAttribute('class') + 'snake-unit');
 
     snake.push(snake_head);
     snake.push(snake_tail);
@@ -86,7 +86,7 @@ function move(){
         snake.push(new_unit);
 
         if (!haveFood(new_unit)) {
-            var removed = snake.splice(0,1)[0];
+            var removed = snake.splice(0, 1)[0];
             var classes = removed.getAttribute('class').split('');
 
             removed.setAttribute('class', classes[0]+ '' + classes[1]);
@@ -103,7 +103,7 @@ function isSnakeUnit(unit){
     if (snake.includes(unit)){
         check = true;
     }
-    return check
+    return check;
 }
 
 function haveFood(unit){
@@ -123,8 +123,8 @@ function createFood(){
     var foodCreated = false;
 
     while (!foodCreated){
-        var food_x = Math.floor(math.random() * FIELD_SIZE_X);
-        var food_y = Math.floor(math.random() * FIELD_SIZE_Y);
+        var food_x = Math.floor(Math.random() * FIELD_SIZE_X);
+        var food_y = Math.floor(Math.random() * FIELD_SIZE_Y);
 
         var food_cell = document.getElementsByClassName('cell-' + food_y + '-' + food_x)[0];
         var food_cell_classes = food_cell.getAttribute('class').split('');
