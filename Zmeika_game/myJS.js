@@ -35,7 +35,7 @@ function prepareGameField() {
         }
         game_table.appendChild(row)
     }
-    document.geyElementById('snake-field').appendChild(game_table);
+    document.getElementById('snake-field').appendChild(game_table);
 }
 
 function startGame(){
@@ -96,3 +96,85 @@ function move(){
         finishTheGame();
     }
 }
+
+function isSnakeUnit(unit){
+    var check = false;
+
+    if (snake.includes(unit)){
+        check = true;
+    }
+    return check
+}
+
+function haveFood(unit){
+    var check = false;
+
+    var unit_classes = unit.getAttribute('class').split('');
+
+    if (unit_classes.includes('food-iunit')){
+        check = true;
+        createFood();
+        score++;
+    }
+    return check;
+}
+
+function createFood(){
+    var foodCreated = false;
+
+    while (!foodCreated){
+        var food_x = Math.floor(math.random() * FIELD_SIZE_X);
+        var food_y = Math.floor(math.random() * FIELD_SIZE_Y);
+
+        var food_cell = document.getElementsByClassName('cell-' + food_y + '-' + food_x)[0];
+        var food_cell_classes = food_cell.getAttribute('class').split('');
+
+        if (!food_cell_classes.includes('snake-unit')){
+            var classes = '';
+            for (var i = 0; i < food_cell_classes.lenght; i++){
+                classes += food_cell_classes[i] + '';
+            }
+
+            food_cell.setAttribute('class', classes + 'food-unit');
+            foodCreated = true;
+        }
+    }
+}
+
+function changeDirection(e){
+    console.log(e);
+    switch (e.keyCode){
+        case 37:
+            if (direction != 'x+'){
+                direction = 'x-'
+            }
+            break;
+        case 38:
+            if (direction != 'y-'){
+                direction = 'y+'
+            }
+            break;
+        case 39:
+            if (direction != 'x-'){
+                direction = 'x+'
+            }
+            break;
+        case 40:
+            if (direction != 'y+'){
+                direction = 'y-'
+            }
+            break;
+    }
+}
+
+function finishTheGame(){
+    gameIsRunning = false;
+    clearInterval(snake_timer);
+    alert('вы проиграли! Ваш результат: ' + score.toString());
+}
+
+function refreshGame() {
+    location.reload();
+}
+
+window.onload = init;
