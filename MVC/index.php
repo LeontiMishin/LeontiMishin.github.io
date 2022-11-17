@@ -11,5 +11,4 @@ $pageBody = $view->ViewMainPage();
 $pageFooter = $view->GetFooter();
 
 include($pageHeader);
-$pageData = $view->ViewMainPage();
 include($pageFooter);
