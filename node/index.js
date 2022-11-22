@@ -4,7 +4,7 @@ const fs = require('fs')
 
 const server = http.createServer((req, res) => {
     if (req.method === 'GET') {
-        res.writaHead(200, {
+        res.writeHead(200, {
             'Content-Type': 'text/html; charset=utf-8'
         })
 
@@ -44,14 +44,14 @@ const server = http.createServer((req, res) => {
 
             res.end(JSON.stringify(users))
         }
-    }else if (req.method === 'POST') {
+    } else if (req.method === 'POST') {
         const body = []
         res.writeHead(200, {
             'Content-Type': 'text/html; charset=utf-8'
         })
 
         req.on('data', data => {
-            dody.push(Buffer.from(data))
+            body.push(Buffer.from(data))
         })
 
         req.on('end', () => {
