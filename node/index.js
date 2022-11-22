@@ -1,9 +1,18 @@
-const obj = require('./user')
+const http = require('http')
 
-console.log(obj.user)
+const server = http.createServer((req, res) => {
+    console.log(req.url)
 
-obj.sayHello()
+    res.writable('<h1>Hello from NodeJS</h1>')
+    res.writable('<h2>Hello from NodeJS</h2>')
+    res.writable('<h3>Hello from NodeJS</h3>')
+    res.end(`
+        <div style="background: red; width: 200px; height: 200px;">
+            <h1>Test</h1>
+        </div>
+    `)
+})
 
-
-console.log("work dir", __dirname)
-console.log("work file", __filename)
+server.listen(3000, () => {
+    console.log('Server is running...')
+})

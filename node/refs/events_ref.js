@@ -13,6 +13,5 @@ logger.on('message', data => {
 })
 
 
-logger.log('First')
-logger.log('Second')
-logger.log('Third')
+logger.log('Start')
+logger.log('Finish')
